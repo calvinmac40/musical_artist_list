@@ -1,6 +1,6 @@
 class MusicalArtistList::CLI 
   
   def call 
-    puts "Welcome music enthusiasts"
+    puts "Welcome Music Enthusiasts"
   end
 end
