@@ -11,15 +11,16 @@ class MusicalArtistList::CLI
       while input != "exit"
         puts "Choose the next group of artist!"
         input = gets.chomp
-      case input
-      when "a"
-        puts "A list artist"
-      when "b"
-        puts "B-list artist"
-      when "c"
-        puts "C-list artist"
+        selection = "a".."z"
+        selection.map do |letter|
+          if letter == input
+            puts "#{letter.upcase}-list artist!"
+          end
+        end
       end
     end
-  end
+       
+            
+  
   
 end
