@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative './lib/musical_artist_list'
+require './lib/musical_artist_list.rb'
 
 MusicalArtistList::CLI.new.call
