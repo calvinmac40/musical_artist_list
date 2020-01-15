@@ -38,3 +38,5 @@ class MusicalArtistList::CLI
     end
     end
   end
+end
+end
