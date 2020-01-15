@@ -27,7 +27,8 @@ class MusicalArtistList::CLI
       single_artist = 1..array.length
       new_array = []
       single_artist.each_with_index do |artist,index|
-        if "#{index}" == selection
+        if index == selection
+          "#{index}. #{artist}"
       selection = gets.chomp
       puts "Thank you!"
       if selection == "back"
