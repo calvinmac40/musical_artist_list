@@ -1,10 +1,7 @@
-class MusicalArtistList::Scraper
+class Scraper
   
-  def self.scrape 
+  def scrape 
     page = Nokogiri::HTML(open("https://www.udiscovermusic.com/artists-a-z/"))
-    names = page.css(".ud-artist-page-columns")
-    binding.pry
+   binding.pry 
   end
-
-
 end
