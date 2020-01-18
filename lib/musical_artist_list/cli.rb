@@ -2,17 +2,18 @@ class MusicalArtistList::CLI
   
   def call 
     puts "Welcome Music Enthusiasts!"
-    puts 
-    MusicalArtistList::Scraper.scrape
+    puts "Please select an artist to learn more:"
     menu
   end
   
   
   
   def menu
-    input = nil
-    while input != "exit"
-      input = gets.chomp
+    MusicalArtistList::Scraper.scrape
+    @input = nil
+    while @input != "exit"
+      @input = gets.chomp
+      aretha_franklin
     end
   end
 end
