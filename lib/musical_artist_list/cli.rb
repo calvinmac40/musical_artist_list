@@ -10,16 +10,17 @@ class MusicalArtistList::CLI
   def menu
     input = nil
       while input != "exit"
-        input = gets.chomp
-        selection = "a".."z"
-        selection.map do |letter| 
-          if letter == input
-            puts "#{letter.upcase}-list artist!"
+        @input = gets.chomp
+        MusicalArtistList::Scraper.find_by_letter(@input)
+        # selection = "a".."z"
+        # selection.map do |letter| 
+        #   if letter == input
+        #     puts "#{letter.upcase}-list artist!"
             artist_selector
           end
         end
-      end
-    end
+    #   end
+    # end
     
     def artist_selector
       selection = nil
