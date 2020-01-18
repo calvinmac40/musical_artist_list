@@ -2,9 +2,8 @@ class MusicalArtistList::Scraper
   
   def self.scrape 
     page = Nokogiri::HTML(open("https://www.biography.com/news/aretha-franklin-black-singers-church"))
-    list = []
-    names = page.css("h2").map.with_index(1){|artist,index| unless index > 12   
-     "#{index}. #{artist.text}" 
+    @names = page.css("h2").map.with_index(1){|artist,index| unless index > 12   
+    puts "#{index}. #{artist.text}" 
      end 
     }.compact
     
@@ -23,7 +22,6 @@ class MusicalArtistList::Scraper
     :john_legend => page.css("p")[47].text,
     :laura_mvula => page.css("p")[52].text.gsub("\"", ""),
     :curtis_mayfield => page.css("p").text.gsub("\"", "")}}
-    list << page
     #binding.pry
   end
 end
