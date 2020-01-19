@@ -2,12 +2,21 @@ class MusicalArtistList::Scraper
   
   def self.scrape 
     page = Nokogiri::HTML(open("https://www.pbs.org/theblues/songsartists/songsbioalpha.html"))
-    
-    names = page.css("span.textName").each.with_index(1) do |artist,index| 
+    #artist_info = {
+    names = page.css("span.textName").map.with_index(1) do |artist,index| 
       unless  index  > 15
-       puts "#{index}. #{artist.text}"
+      puts  "#{index}. #{artist.text}".strip
+        end
       end
+    
+    desc = page.css("p").map.with_index(1) do |bio,i| 
+    unless i > 15
+       "#{i}. #{bio.text}".gsub("\n\t\t","").gsub("\"","").gsub("\n\t","").gsub("\t","")
     end
+  end
+    
+    
+    
     
     binding.pry
     # @names = page.css("h2").map.with_index(1){|artist,index| unless index > 12   
