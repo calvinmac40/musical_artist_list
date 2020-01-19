@@ -2,7 +2,7 @@ class MusicalArtistList::CLI
   
   attr_accessor :name
   
-  def call 
+  def list_artist 
     puts "Welcome Music Enthusiasts!"
     puts "Choose an artist you'd like to know more about!"
     artist_list
@@ -14,10 +14,13 @@ class MusicalArtistList::CLI
   end
   
   def menu
-    puts "Please select an artist to learn more:"
     input = nil
     while input != "exit"
+    puts "Please select an artist to learn more:"
       input = gets.chomp
+      
+    # case input.to_i -1
+    # end
     end
     goodbye
   end
