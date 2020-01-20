@@ -2,13 +2,13 @@ class MusicalArtistList::CLI
   
   attr_accessor :name
   
-  def list_artist 
+  def call 
     puts "Welcome Music Enthusiasts!"
     artist_list
   end
   
   def artist_list
-    #MusicalArtistList::Scraper.scrape
+    MusicalArtistList::Scraper.scrape
     menu
   end
   
@@ -23,19 +23,17 @@ class MusicalArtistList::CLI
   def menu
     input = nil
     while input != "exit"
-    puts "Here is a list of blues artist. Please select an artist to learn more:"
-      input = gets.chomp
-      
-    case input
-    when "1"
-      puts blues_artist
-    else
-      puts "Not sure what you are looking for?"
+        puts "Please make your selection:"
+          input = gets.chomp
+      if input == "exit"
+         goodbye
+      elsif input == "1"
+        blues_artist
+      elsif input == "2"
+        puts "Not sure what you're looking for? Please try again."
+      end
     end
-    end
-    goodbye
   end
-  
   
   
   def goodbye
