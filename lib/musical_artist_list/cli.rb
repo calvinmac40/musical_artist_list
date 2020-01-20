@@ -4,7 +4,6 @@ class MusicalArtistList::CLI
   
   def list_artist 
     puts "Welcome Music Enthusiasts!"
-    puts "Choose an artist you'd like to know more about!"
     artist_list
   end
   
@@ -13,13 +12,22 @@ class MusicalArtistList::CLI
     menu
   end
   
+  def blues_artist
+    puts "Make your selection"
+    puts <<-DOC.gsub /^\s*/, ''
+    1. Fats Domino is a blues artist that my son did a history report on.
+    2. My favorite blues artist is....HMMm I don't have one.
+    DOC
+  end
+  
   def menu
     input = nil
     while input != "exit"
-    puts "Please select an artist to learn more:"
+    puts "Here is a list of blues artist. 
+Please select an artist to learn more:"
       input = gets.chomp
       
-    # case input.to_i -1
+    # case input.
     # end
     end
     goodbye
