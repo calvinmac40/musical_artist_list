@@ -8,7 +8,7 @@ class MusicalArtistList::CLI
   end
   
   def artist_list
-    MusicalArtistList::Scraper.scrape
+    #MusicalArtistList::Scraper.scrape
     menu
   end
   
@@ -23,12 +23,15 @@ class MusicalArtistList::CLI
   def menu
     input = nil
     while input != "exit"
-    puts "Here is a list of blues artist. 
-Please select an artist to learn more:"
+    puts "Here is a list of blues artist. Please select an artist to learn more:"
       input = gets.chomp
       
-    # case input.
-    # end
+    case input
+    when "1"
+      puts blues_artist
+    else
+      puts "Not sure what you are looking for?"
+    end
     end
     goodbye
   end
