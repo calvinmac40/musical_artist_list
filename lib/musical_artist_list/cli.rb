@@ -8,8 +8,8 @@ class MusicalArtistList::CLI
   end
   
   def artist_list
-   @list = MusicalArtistList::Scraper.scrape
-   @list.each_with_index(1) do |artist,index|
+   @artist = MusicalArtistList::Scraper.scrape
+   @artist.each_with_index(1) do |artist,index|
      puts "#{index}. #{artist.name} - #{artist.bio}"
    end
   end
@@ -23,17 +23,19 @@ class MusicalArtistList::CLI
   # end
   
   def menu
-    input = nil
+   input = nil 
     while input != "exit"
-         puts "Please make your selection:"
-         input = gets.chomp
-      if input == "exit"
+         puts "Please enter a number for the artist you'd like to know more about!"
+         input = gets.strip
+       if input == "exit"
          goodbye
-      elsif input == "1"
-         blues_artist
-      elsif input == "2"
-         puts "Not sure what you're looking for?"
-      end
+       elsif input.to_i > 0 
+         puts @artist[input.to_i - 1]
+        elsif input == "list"
+         artist_list
+       else 
+         puts "Not sure what you want?"
+       end
     end
   end
   
