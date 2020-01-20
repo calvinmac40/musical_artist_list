@@ -4,12 +4,14 @@ class MusicalArtistList::CLI
   
   def call 
     puts "Welcome Music Enthusiasts!"
-    artist_list
+    menu
   end
   
   def artist_list
-    MusicalArtistList::Scraper.scrape
-    menu
+   @list = MusicalArtistList::Scraper.scrape
+   @list.each_with_index(1) do |artist,index|
+     puts "#{index}. #{artist.name} - #{artist.bio}"
+   end
   end
   
   # def blues_artist
