@@ -4,15 +4,16 @@ class MusicalArtistList::CLI
   
   def call 
     puts "Welcome Music Enthusiasts!"
+    MusicalArtistList::Scraper.scrape
     menu
   end
   
-  def artist_list
-   @artist = MusicalArtistList::Scraper.scrape
-   @artist.each_with_index(1) do |artist,index|
-     puts "#{index}. #{artist.name} - #{artist.bio}"
-   end
-  end
+  # def artist_list
+  # @artist = MusicalArtistList::Scraper.scrape
+  # @artist.each_with_index(1) do |artist,index|
+  #   puts "#{index}. #{artist.name} - #{artist.bio}"
+  # end
+  # end
   
   # def blues_artist
   #   puts <<-DOC.gsub /^\s*/, ''
