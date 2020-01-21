@@ -2,7 +2,6 @@ class MusicalArtistList::CLI
   
   def call 
     puts "Welcome Music Enthusiasts!"
-    # MusicalArtistList::Scraper.display
     menu
   end
   
@@ -37,7 +36,7 @@ class MusicalArtistList::CLI
     input = nil 
     while input != "exit"
     
-    puts "To make another selection enter a number 1 - 79 or type list to see the menu again or type exit."
+    puts "To make a selection enter a number between 1 - 79 or type list to see the menu again or type exit."
     input = gets.strip
     if input.to_i > 0 && input.to_i < 80 
      puts  @artist_info.name[input.to_i - 1]
