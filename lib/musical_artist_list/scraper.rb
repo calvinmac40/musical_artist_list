@@ -2,13 +2,6 @@ class MusicalArtistList::Scraper
   
   attr_accessor :name, :bio
   
-  # def self.display
-  #   artist_info = []
-  #   artist_info << self.scrape
-  #   artist_info.flatten
-  # # binding.pry
-  # end
-  
 
   
   def self.scrape
@@ -19,7 +12,7 @@ class MusicalArtistList::Scraper
     end
     #binding.pry
     artists.bio = page.css("p.textSm").map do |bio|
-      #unless index > 79 
+
       "#{bio.text.strip}".gsub("\n\t\t","")
     end
     artists
