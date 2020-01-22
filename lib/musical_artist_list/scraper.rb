@@ -9,7 +9,7 @@ def self.scrape
        "#{index}. #{name.text}".strip
     end
     artists.bio = page.css("p.textSm").map do |bio|
-      "#{bio.text.strip}".gsub("\n\t\t","")
+      "#{bio.text.strip}".gsub("\t","")
     end
     artists
   end
