@@ -6,6 +6,11 @@ attr_accessor :name, :bio
 def self.scrape
     page = Nokogiri::HTML(open("https://www.pbs.org/theblues/songsartists/songsbioalpha.html"))
     
+    page.css('p.textSm')[0..(-4)].each do |card|
+      
+      binding.pry
+    end
+    
   #   artists = page.search("td:not([class])").each do |artist|
   #     artist.name = page.css("span.textName").text
   #     artist.bio = page.css("p.textSm").text

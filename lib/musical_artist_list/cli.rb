@@ -1,6 +1,7 @@
 class MusicalArtistList::CLI 
   
   def call
+    MusicalArtistList::Scraper.scrape
     puts ""
     puts "-----------------------------"
     puts "* Welcome Music Enthusiasts! *"
