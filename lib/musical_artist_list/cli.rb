@@ -1,6 +1,7 @@
 class MusicalArtistList::CLI 
   
   def call
+    puts ""
     puts "-----------------------------"
     puts "* Welcome Music Enthusiasts! *"
     puts "-----------------------------"
@@ -14,11 +15,11 @@ class MusicalArtistList::CLI
     while input != "exit"
          puts "To see a list of artist enter list."
          puts ""
-         input = gets.strip
+         input = gets.strip.downcase
        if input == "exit"
          goodbye
       elsif input.to_i > 0 
-       @artist_info[input.to_i - 1]
+      puts  "Not sure what you're looking for?" 
         elsif input == "list"
         puts ""
          artist_list
@@ -52,8 +53,6 @@ class MusicalArtistList::CLI
       elsif input == "exit"
       goodbye
       exit 
-    else 
-      puts " Not sure what you want."
     end
   end
   end
