@@ -7,7 +7,7 @@ def self.scrape
     page = Nokogiri::HTML(open("https://www.pbs.org/theblues/songsartists/songsbioalpha.html"))
     
     page.css('p.textSm')[0..(-4)].each do |card|
-      
+      artist_name = card.css('span').first.children.first.text
       binding.pry
     end
     
