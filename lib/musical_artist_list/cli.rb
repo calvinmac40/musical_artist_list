@@ -23,7 +23,7 @@ class MusicalArtistList::CLI
       puts @artist_name[input.to_i - 1] 
         elsif input == "list"
         puts ""
-         artist_list
+         artist_names
          else 
          puts "Not sure what you want?"
        end
@@ -31,7 +31,7 @@ class MusicalArtistList::CLI
   end
   
   
-  def artist_list
+  def artist_names
       @artist_name = MusicalArtistList::Artist.all
       @artist_name.map.with_index(1) do |name,index|
         puts "#{index}. #{name.name.text}".strip
