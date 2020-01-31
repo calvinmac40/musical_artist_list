@@ -6,8 +6,10 @@ attr_accessor :name, :bio
 def self.scrape
     page = Nokogiri::HTML(open("https://www.pbs.org/theblues/songsartists/songsbioalpha.html"))
     
-    page.css('p.textSm')[0..(-4)].each do |card|
+    page.search('p.textSm')[0..(-4)].each do |card|
       artist_name = card.css('span').first.children.first.text
+      artist_bio = card.children[5..(-1)].text
+      MusicalArtistList::Artist.new(artist_name,artist_bio)
       binding.pry
     end
     
@@ -21,13 +23,13 @@ def self.scrape
     
     
     
-    artists = self.new 
-    artists.name = page.css("span.textName").map.with_index(1) do |name, index| 
-      "#{index}. #{name.text}".strip
-    end
-    artists.bio = page.css("p.textSm").map do |bio|
-      "#{bio.text.strip}".gsub("\t","")
-    end
-    artists
+    # artists = self.new 
+    # artists.name = page.css("span.textName").map.with_index(1) do |name, index| 
+    #   "#{index}. #{name.text}".strip
+    # end
+    # artists.bio = page.css("p.textSm").map do |bio|
+    #   "#{bio.text.strip}".gsub("\t","")
+    # end
+    # artists
   end
 end
