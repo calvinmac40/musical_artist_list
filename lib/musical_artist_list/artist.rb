@@ -1,16 +1,16 @@
-# class MusicalArtistList::Artist 
-#   attr_accessor :name, :bio 
+class MusicalArtistList::Artist 
+  attr_accessor :name, :bio 
   
-#   @@all = []
+  @@all = []
   
-#   def initialize(name)
-#     @name = name
-#     @bio = bio
-#     @@all << self
-#   end
+  def initialize(name,bio)
+    @name = name
+    @bio = bio
+    @@all << self
+  end
   
-#   def self.all
-#     @@all 
-#   end
+  def self.all
+    @@all 
+  end
   
-# end
+end

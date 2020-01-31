@@ -32,9 +32,9 @@ class MusicalArtistList::CLI
   
   
   def artist_list
-      @artist_info = MusicalArtistList::Scraper.scrape
-      @artist_info.name.each do |list|
-        puts "#{list}"
+      @artist_name = MusicalArtistList::Artist.all
+      @artist_name.each do |list|
+        puts "#{list.name}"
       end
       artist_bio 
   end
@@ -48,7 +48,7 @@ class MusicalArtistList::CLI
     input = gets.strip
     if input.to_i > 0 && input.to_i < 80
       puts ""
-      puts @artist_info.bio[input.to_i - 1]
+      puts @artist_bio[input.to_i - 1]
       elsif input == "list"
       artist_list
       elsif input == "exit"
