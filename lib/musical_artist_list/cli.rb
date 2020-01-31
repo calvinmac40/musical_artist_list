@@ -39,18 +39,20 @@ class MusicalArtistList::CLI
       artist_bio 
   end
   
+  
+  
   def artist_bio
     input = nil 
     while input != "exit"
     puts ""
-    puts "To make a selection enter a number between 1 - 79 or type list to see the menu again or type exit."
+    puts "To make a selection enter a number between 1 - 79 or type lis to see the menu again or type exit."
     puts ""
     input = gets.strip
     if input.to_i > 0 && input.to_i < 80
       puts ""
-      puts @artist_bio[input.to_i - 1]
+      puts artist_bio[input.to_i - 1]
       elsif input == "list"
-      artist_list
+      artist_names
       elsif input == "exit"
       goodbye
       exit 
