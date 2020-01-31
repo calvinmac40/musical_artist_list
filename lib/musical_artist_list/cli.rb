@@ -36,26 +36,28 @@ class MusicalArtistList::CLI
       @artist_name.map.with_index(1) do |name,index|
         puts "#{index}. #{name.name.text}".strip
       end
-      artist_bio 
+      artist_bios 
   end
   
   
   
-  def artist_bio
+  def artist_bios
     input = nil 
     while input != "exit"
     puts ""
     puts "To make a selection enter a number between 1 - 79 or type lis to see the menu again or type exit."
     puts ""
     input = gets.strip
-    if input.to_i > 0 && input.to_i < 80
-      puts ""
-      puts artist_bio[input.to_i - 1]
-      elsif input == "list"
-      artist_names
+    if input == "list"
+     artist_names 
+    elsif input.to_i > 0 && input.to_i < 80
+     @art_bio = MusicalArtistList::Artist.all
+     @art_bio[input.to_i - 1].map.with_index(1) do |info,index|
+       puts "#{index}. #{info}"
+     end
       elsif input == "exit"
       goodbye
-      exit 
+      exit
     end
   end
   end
