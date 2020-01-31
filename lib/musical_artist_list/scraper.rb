@@ -7,10 +7,9 @@ def self.scrape
     page = Nokogiri::HTML(open("https://www.pbs.org/theblues/songsartists/songsbioalpha.html"))
     
     page.search('p.textSm')[0..(-4)].each do |card|
-      artist_name = card.css('span').first.children.first.text
-      artist_bio = card.children[5..(-1)].text
-      MusicalArtistList::Artist.new(artist_name,artist_bio)
-      binding.pry
+      artist_name = card.css('span')
+      artist_bio = card.children[5..(-1)]
+      artists = MusicalArtistList::Artist.new(artist_name,artist_bio)
     end
     
   #   artists = page.search("td:not([class])").each do |artist|

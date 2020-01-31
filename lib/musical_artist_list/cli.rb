@@ -20,7 +20,7 @@ class MusicalArtistList::CLI
        if input == "exit"
          goodbye
       elsif input.to_i > 0 
-      puts  "Not sure what you're looking for?" 
+      puts @artist_name[input.to_i - 1] 
         elsif input == "list"
         puts ""
          artist_list
@@ -33,8 +33,8 @@ class MusicalArtistList::CLI
   
   def artist_list
       @artist_name = MusicalArtistList::Artist.all
-      @artist_name.each do |list|
-        puts "#{list.name}"
+      @artist_name.map.with_index(1) do |name,index|
+        puts "#{index}. #{name.name.text}".strip
       end
       artist_bio 
   end
