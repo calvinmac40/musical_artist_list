@@ -29,7 +29,8 @@ class MusicalArtistList::CLI
       puts ""
       puts "To learn more enter a number associated with an artist."
       puts ""
-      else 
+      else
+      puts ""
       puts "Not sure what you're looking for?"
       puts "Please enter the command 'list'!"
       puts ""
