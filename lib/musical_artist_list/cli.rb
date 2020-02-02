@@ -19,11 +19,9 @@ class MusicalArtistList::CLI
          input = gets.strip.downcase
        if input == "exit"
          goodbye
-      elsif input.to_i > 0 
-      puts @artist_name[input.to_i - 1] 
         elsif input == "list"
         puts ""
-         artist_names
+        artist_names
          else 
          puts "Not sure what you want?"
        end
@@ -32,11 +30,11 @@ class MusicalArtistList::CLI
   
   
   def artist_names
-      @artist_name = MusicalArtistList::Artist.all
-      @artist_name.map.with_index(1) do |name,index|
-        puts "#{index}. #{name.name.text}".strip
-      end
-      artist_bios 
+      @artists = MusicalArtistList::Artist
+      @artists.all.map.with_index(1) do |artist,index|
+      puts  "#{index}. #{artist.name}".strip
+    end
+    artist_bios
   end
   
   
@@ -51,9 +49,9 @@ class MusicalArtistList::CLI
     if input == "list"
      artist_names 
     elsif input.to_i > 0 && input.to_i < 80
-     @art_bio = MusicalArtistList::Artist.all
-     @art_bio[input.to_i - 1].map.with_index(1) do |info,index|
-       puts "#{index}. #{info}"
+     @artists_bio = MusicalArtistList::Artist
+     @artists_bio.all.map.with_index(1) do |artist,index|
+       puts "#{index}. #{artist.bio}"
      end
       elsif input == "exit"
       goodbye
