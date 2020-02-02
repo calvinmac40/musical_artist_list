@@ -29,12 +29,37 @@ class MusicalArtistList::CLI
       puts ""
       puts "To learn more enter a number associated with an artist."
       puts ""
+      bio_selector
       else
       puts ""
       puts "Not sure what you're looking for?"
       puts "Please enter the command 'list'!"
       puts ""
      end
+    end
+  end
+  
+   def artist_bios
+    @bios = MusicalArtistList::Artist
+    @bios.all.map.with_index(1) do |artist,index|
+      "#{index}. #{artist.bio}" 
+     
+      puts 
+    end
+  end
+  
+  
+  def bio_selector
+    input = nil 
+    while input != "exit"
+    input = gets.strip
+    if input == "exit"
+      goodbye
+      exit
+      elsif input.to_i > 0
+    puts ""
+    puts artist_bios
+      end
     end
   end
   
@@ -45,13 +70,7 @@ class MusicalArtistList::CLI
     end
   end
 
-  def artist_bios
-    @bios = MusicalArtistList::Artist 
-    @bios.all.with_index(1).select do |artist,index|
-      puts "#{index}. #{artist.bio}"
-    end
-  end
-  
+
   def goodbye
     puts "Goodbye!"
   end
