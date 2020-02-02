@@ -44,6 +44,13 @@ class MusicalArtistList::CLI
     puts "#{index}. #{artist.name}"
     end
   end
+
+  def artist_bios
+    @bios = MusicalArtistList::Artist 
+    @bios.all.with_index(1).select do |artist,index|
+      puts "#{index}. #{artist.bio}"
+    end
+  end
   
   def goodbye
     puts "Goodbye!"
